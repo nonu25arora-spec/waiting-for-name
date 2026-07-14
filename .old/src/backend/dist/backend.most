@@ -1,0 +1,93 @@
+// Version: 4.0.0
+type Data__80296667<K, V> =
+  {var count : Nat__1040412405; kvs : [var ?(K, V)]};
+type Internal__41346355<K, V> =
+  {children : [var ?Node__1000929467<K, V>]; data : Data__80296667<K, V>};
+type Lead__1017602925 =
+  {
+    var amountPaid : Text;
+    createdAt : Int;
+    email : Text;
+    id : Nat;
+    name : Text;
+    var pendingAmount : Text;
+    phone : Text;
+    var soldBy : Text;
+    termsAccepted : Bool
+  };
+type Lead__52810411 =
+  {
+    var amountPaid : Text;
+    createdAt : Int;
+    email : Text;
+    id : Nat;
+    name : Text;
+    phone : Text;
+    var soldBy : Text;
+    termsAccepted : Bool
+  };
+type Leaf__712614010<K, V> = {data : Data__80296667<K, V>};
+type Map__222667396<K, V> = Map__912772452<K, V>;
+type Map__709709801<K, V> =
+  {var root : Node__1000929467<K, V>; var size : Nat__1040412405};
+type Map__912772452<K, V> = Map__709709801<K, V>;
+type Nat__1040412405 = Nat__920180692;
+type Nat__920180692 = Nat;
+type NewActor__207274320 =
+  {
+    leads : Map__222667396<Nat, NewLead__245179286>;
+    state : {var nextLeadId : Nat}
+  };
+type NewActor__411032242 =
+  {
+    leads : Map__222667396<Nat, Lead__52810411>;
+    state : {var nextLeadId : Nat}
+  };
+type NewActor__719211346 = {};
+type NewLead__245179286 =
+  {
+    var amountPaid : Text;
+    createdAt : Int;
+    email : Text;
+    id : Nat;
+    name : Text;
+    var pendingAmount : Text;
+    phone : Text;
+    var soldBy : Text;
+    termsAccepted : Bool
+  };
+type Node__1000929467<K, V> =
+  {#internal : Internal__41346355<K, V>; #leaf : Leaf__712614010<K, V>};
+type OldActor__430996676 = {};
+type OldActor__482016252 =
+  {
+    leads : Map__222667396<Nat, OldLead__225476251>;
+    state : {var nextLeadId : Nat}
+  };
+type OldActor__831452324 = {};
+type OldLead__225476251 =
+  {
+    var amountPaid : Text;
+    createdAt : Int;
+    email : Text;
+    id : Nat;
+    name : Text;
+    phone : Text;
+    var soldBy : Text;
+    termsAccepted : Bool
+  };
+{
+  "20260606_000000_Init" : OldActor__430996676 -> NewActor__719211346;
+  "20260606_090000_AddLeadStorage" :
+    OldActor__831452324 -> NewActor__411032242;
+  "20260606_120000_AddPendingAmount" :
+    (old : OldActor__482016252) -> NewActor__207274320
+}
+actor  {
+  stable leads :
+    {
+      var root : Node__1000929467<Nat, Lead__1017602925>;
+      var size : Nat__1040412405
+    };
+  stable state : {var nextLeadId : Nat}
+};

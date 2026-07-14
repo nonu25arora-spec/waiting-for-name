@@ -1,0 +1,21 @@
+type LeadPublic = 
+ record {
+   amountPaid: text;
+   createdAt: int;
+   email: text;
+   id: nat;
+   name: text;
+   pendingAmount: text;
+   phone: text;
+   soldBy: text;
+   termsAccepted: bool;
+ };
+service : {
+  deleteLead: (id: nat) -> (bool);
+  getAllLeads: () -> (vec LeadPublic) query;
+  submitLead: (name: text, phone: text, email: text, termsAccepted: bool) ->
+   (LeadPublic);
+  updateLeadAmountPaid: (id: nat, amountPaid: text) -> (bool);
+  updateLeadPendingAmount: (id: nat, pendingAmount: text) -> (bool);
+  updateLeadSoldBy: (id: nat, soldBy: text) -> (bool);
+}

@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Lora";
+  src: url("/assets/fonts/Lora.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/assets/fonts/Satoshi.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/assets/fonts/GeistMono.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Figtree";
+  src: url("/assets/fonts/Figtree.woff2") format("woff2");
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --font-display: Lora;
+    --font-body: Satoshi;
+    --font-mono: Geist Mono, monospace;
+    --radius: 0.5rem;
+
+    --background: 0.98 0.008 60;
+    --foreground: 0.15 0.02 50;
+    --card: 1.0 0.004 60;
+    --card-foreground: 0.15 0.02 50;
+    --popover: 1.0 0.004 60;
+    --popover-foreground: 0.15 0.02 50;
+
+    --primary: 0.65 0.18 65;
+    --primary-foreground: 0.11 0.02 45;
+
+    --secondary: 0.94 0.018 60;
+    --secondary-foreground: 0.25 0.02 50;
+    --muted: 0.94 0.018 60;
+    --muted-foreground: 0.5 0.015 50;
+
+    --accent: 0.65 0.18 65;
+    --accent-foreground: 0.11 0.02 45;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.99 0.005 25;
+
+    --border: 0.88 0.018 60;
+    --input: 0.88 0.018 60;
+    --ring: 0.65 0.18 65;
+
+    --chart-1: 0.65 0.18 65;
+    --chart-2: 0.55 0.18 160;
+    --chart-3: 0.45 0.14 240;
+    --chart-4: 0.72 0.17 70;
+    --chart-5: 0.6 0.2 30;
+
+    --sidebar: 0.97 0.01 60;
+    --sidebar-foreground: 0.15 0.02 50;
+    --sidebar-primary: 0.65 0.18 65;
+    --sidebar-primary-foreground: 0.11 0.02 45;
+    --sidebar-accent: 0.94 0.018 60;
+    --sidebar-accent-foreground: 0.25 0.02 50;
+    --sidebar-border: 0.88 0.018 60;
+    --sidebar-ring: 0.65 0.18 65;
+  }
+
+  .dark {
+    --background: 0.11 0.02 45;
+    --foreground: 0.95 0.01 70;
+    --card: 0.15 0.025 48;
+    --card-foreground: 0.95 0.01 70;
+    --popover: 0.15 0.025 48;
+    --popover-foreground: 0.95 0.01 70;
+
+    --primary: 0.75 0.15 65;
+    --primary-foreground: 0.11 0.02 45;
+
+    --secondary: 0.2 0.025 48;
+    --secondary-foreground: 0.85 0.01 65;
+    --muted: 0.2 0.025 48;
+    --muted-foreground: 0.55 0.015 55;
+
+    --accent: 0.75 0.15 65;
+    --accent-foreground: 0.11 0.02 45;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.95 0.01 25;
+
+    --border: 0.25 0.025 48;
+    --input: 0.25 0.025 48;
+    --ring: 0.75 0.15 65;
+
+    --chart-1: 0.75 0.15 65;
+    --chart-2: 0.7 0.17 162;
+    --chart-3: 0.77 0.19 70;
+    --chart-4: 0.63 0.27 304;
+    --chart-5: 0.65 0.25 16;
+
+    --sidebar: 0.15 0.025 48;
+    --sidebar-foreground: 0.95 0.01 70;
+    --sidebar-primary: 0.75 0.15 65;
+    --sidebar-primary-foreground: 0.11 0.02 45;
+    --sidebar-accent: 0.2 0.025 48;
+    --sidebar-accent-foreground: 0.85 0.01 65;
+    --sidebar-border: 0.25 0.025 48;
+    --sidebar-ring: 0.75 0.15 65;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .shadow-subtle {
+    box-shadow: 0 1px 3px 0 oklch(0 0 0 / 0.08), 0 1px 2px -1px
+      oklch(0 0 0 / 0.06);
+  }
+  .shadow-elevated {
+    box-shadow: 0 4px 16px -2px oklch(0 0 0 / 0.12), 0 2px 8px -2px
+      oklch(0 0 0 / 0.08);
+  }
+  .gradient-primary {
+    background: linear-gradient(
+      135deg,
+      oklch(0.65 0.18 65),
+      oklch(0.75 0.15 65)
+    );
+  }
+  .gradient-hero {
+    background: linear-gradient(
+      160deg,
+      oklch(0.11 0.02 45) 0%,
+      oklch(0.16 0.025 50) 100%
+    );
+  }
+  .gradient-gold {
+    background: linear-gradient(
+      135deg,
+      oklch(0.6 0.18 65) 0%,
+      oklch(0.75 0.15 65) 50%,
+      oklch(0.65 0.18 65) 100%
+    );
+  }
+  .text-gold {
+    color: oklch(0.65 0.18 65);
+  }
+  .border-gold {
+    border-color: oklch(0.65 0.18 65);
+  }
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-24px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+  .animate-fade-in-left {
+    animation: fadeInLeft 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+}

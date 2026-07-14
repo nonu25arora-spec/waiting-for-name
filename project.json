@@ -1,0 +1,20 @@
+{
+  "overview": "Trained By Nipun Transformation Program website with admin dashboard for lead management",
+  "features": [
+    "Program details page with lead capture form",
+    "Terms and conditions page",
+    "Payment portal with UPI and EMI options",
+    "Password-protected admin dashboard",
+    "Real-time lead submissions table",
+    "Editable amount paid and sold by fields"
+  ],
+  "category": "landing-page",
+  "tags": [
+    "fitness",
+    "coaching",
+    "lead-capture",
+    "admin-dashboard",
+    "payment"
+  ],
+  "last_updated": "2026-06-06T08:19:20.688Z"
+}
